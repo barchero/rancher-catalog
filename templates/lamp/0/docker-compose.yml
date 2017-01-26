@@ -44,8 +44,6 @@ phpmyadmin:
     MYSQL_HOST: mysql
   links:
     - mysql:mysql
-  depends_on:
-    - mysql
 
 # MySql
 mysql:
