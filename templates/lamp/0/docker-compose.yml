@@ -11,9 +11,6 @@ web:
     - redis:redis
   volumes:
     - /home/docker/${STACK_NAME}/html:/var/www/html
-  depends_on:
-    - redis
-    - mysql
   environment:
     REDIS_HOST: redis
     MYSQL_HOST: mysql
