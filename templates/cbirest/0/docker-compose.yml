@@ -1,0 +1,25 @@
+server:
+  image: "barchero/cbirest:latest"
+  ports:
+    - 9999:9999/tcp
+  links:
+    - "redis:redis"
+  environment:
+    STORENAME: ${store_name}
+    REDISHOST: ${redis_host}
+    REDISPORT: ${redis_port}
+redis:
+  image: "redis:alpine"
+  labels:
+    io.rancher.sidekicks: redis-data
+  volumes_from:
+    - redis-data
+redis-data:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+    - /bin/true
+  hostname: redisdata
+  image: "redis:alpine"
+  volumes:
+    - /data

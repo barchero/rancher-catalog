@@ -1,0 +1,50 @@
+.catalog:
+  name: "CBIRest"
+  version: "v0.2.1"
+  description: "Content Base Image REST API"
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  uuid: cbirest-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: store_name
+      description: "Select storage type to use in server"
+      label: "Storage Type"
+      required: true
+      type: "enum"
+      default: REDIS
+      options:
+        - MEMORY
+        - REDIS
+    - variable: redis_host
+      description: "Enter redis host location"
+      label: "Redis Host"
+      type: "string"
+      default: "redis"
+    - variable: redis_port
+      description: "Enter redis port"
+      label: "Redis port"
+      type: int
+      default: 6379
+server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 9999
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+redis:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 6379
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+redis-data:
+  scale: 1
+  retain_ip: true
