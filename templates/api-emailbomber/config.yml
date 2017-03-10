@@ -1,0 +1,5 @@
+name: EmailBomber API
+description: |
+  Content Based Image Retrieval REST API
+version: 0.2.1
+category: Web

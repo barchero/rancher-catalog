@@ -53,7 +53,7 @@ gitlab-postgresql:
   - DB_EXTENSION=pg_trgm
 
 gitlab-server:
-  image: sameersbn/gitlab:8.16.6
+  image: sameersbn/gitlab:latest
   links:
   - "gitlab-redis:gitlab-redis"
   - "gitlab-postgresql:gitlab-postgresql"

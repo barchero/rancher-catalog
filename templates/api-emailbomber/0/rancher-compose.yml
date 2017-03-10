@@ -1,0 +1,20 @@
+.catalog:
+  name: "API - EmailBomber"
+  version: "v1.0.0"
+  description: "API with Angular2 frontend for send massive email"
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  uuid: apiemailbomber-0
+  minimum_rancher_version: v0.51.0
+server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 8080
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+server-data:
+  scale: 1
+  retain_ip: true

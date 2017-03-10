@@ -1,0 +1,16 @@
+server:
+  image: "barchero/api-emailbomber:latest"
+  ports:
+    - 8000:8080/tcp
+  labels:
+    io.rancher.sidekicks: server-data
+  volumes_from:
+    - server-data
+server-data:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+    - /bin/true
+  image: "barchero/api-emailbomber:latest"
+  volumes:
+    - /usr/src/app
