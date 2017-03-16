@@ -1,0 +1,27 @@
+.catalog:
+  name: "EmailBomber - Mosaico"
+  version: "v1.0.0"
+  description: "Customized mosaico template editor to create templates for API - emailbomber."
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  uuid: emailbombermosaico-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "dns"
+      description: "Rancher DNS( Leave blank if not used )"
+      label: "DNS:"
+      required: false
+      type: "string"
+server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 9006
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+
+server-data:
+  scale: 1
+  retain_ip: true

@@ -1,0 +1,18 @@
+server:
+  image: "barchero/emailbomber-mosaico:latest"
+  dns:
+    - ${dns}
+  ports:
+    - 9006:9006/tcp
+  labels:
+    io.rancher.sidekicks: server-data
+  volumes_from:
+    - server-data
+server-data:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+    - /bin/true
+  image: "barchero/emailbomber-mosaico:latest"
+  volumes:
+    - /usr/src/app
