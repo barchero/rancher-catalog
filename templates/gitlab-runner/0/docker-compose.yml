@@ -1,0 +1,19 @@
+gitlab-runner:
+  labels:
+    io.rancher.sidekicks: gitlab-runner-config
+  dns:
+    - ${dns}
+  hostname: gitlab-runner
+  image: gitlab/gitlab-runner:latest
+  volumes_from:
+  - gitlab-runner-config
+
+gitlab-runner-config:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+  - /bin/true
+  hostname: gitlab-runner-config
+  image: busybox:latest
+  volumes:
+  - /etc/gitlab-runner

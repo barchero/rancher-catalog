@@ -1,0 +1,5 @@
+name: Gitlab Runner
+description: |
+  GitLab CI is the Continuous Integration for GitLab
+version: latest
+category: Versioning

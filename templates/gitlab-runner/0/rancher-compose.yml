@@ -1,0 +1,20 @@
+.catalog:
+  name: "Gitlab Runner"
+  version: "latest"
+  description: |
+   GitLab CI is the Continuous Integration for GitLab
+  minimum_rancher_version: "v0.56.0"
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  uuid: gitlab-runner-1
+  questions:
+    - variable: "dns"
+      description: "Rancher DNS (Leave blank if not used)"
+      label: "DNS:"
+      type: "string"
+gitlab-runner:
+  scale: 1
+  retain_ip: true
+gitlab-runner-config:
+  scale: 1
+  retain_ip: true
+
