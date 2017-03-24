@@ -1,0 +1,5 @@
+name: SQL Server 2016
+description: |
+  SQL Server 2016 for Linux
+version: latest
+category: Databases

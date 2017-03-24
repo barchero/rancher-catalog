@@ -1,0 +1,27 @@
+.catalog:
+  name: "SQL Server 2016"
+  version: "v1.0.0"
+  description: "SQL Server 2016 for Linux"
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  uuid: sqlserver-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "sa_password"
+      description: "sa user password"
+      label: "Password:"
+      required: true
+      type: "password"
+server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 1433
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+
+server-data:
+  scale: 1
+  retain_ip: true

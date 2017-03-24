@@ -1,0 +1,20 @@
+server:
+  image: "microsoft/mssql-server-linux"
+  ports:
+    - 1433:1433/tcp
+  labels:
+    io.rancher.sidekicks: server-data
+  volumes_from:
+    - server-data
+  environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=${sa_password}
+server-data:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+    - /bin/true
+  image: "microsoft/mssql-server-linux"
+  volumes:
+    - /var/opt/mssql
+    - /opt/mssql
