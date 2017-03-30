@@ -5,12 +5,18 @@
   maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
   uuid: apiemailbomber-0
   minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "dns"
+      description: "Rancher DNS( Leave blank if not used )"
+      label: "DNS:"
+      required: false
+      type: "string"
 server:
   scale: 1
   retain_ip: true
   health_check:
     port: 8080
-    interval: 30000
+    interval: 5000
     unhealthy_threshold: 3
     strategy: recreate
     response_timeout: 2000
