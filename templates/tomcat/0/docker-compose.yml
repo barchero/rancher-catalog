@@ -5,13 +5,12 @@ services:
     labels:
       io.rancher.container.start_once: true
     volumes:
-    - /usr/local/tomcat/conf/
+    - /usr/local/tomcat/
 
   tomcat-server:
     ports:
       - ${http_port}:8080/tcp
     labels:
-      io.rancher.scheduler.global: 'true'
       io.rancher.sidekicks: tomcat-data
     tty: true
     image: tomcat:8.0.53
