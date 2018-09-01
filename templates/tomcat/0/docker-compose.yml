@@ -1,8 +1,9 @@
-tomcat-server:
-  ports:
-    - ${http-port}:8080
-  labels:
-    io.rancher.scheduler.global: 'true'
-  tty: true
-  image: tomcat:8.0.53
-  stdin_open: true
+services:
+  tomcat-server:
+    ports:
+      - ${http_port}:8080/tcp
+    labels:
+      io.rancher.scheduler.global: 'true'
+    tty: true
+    image: tomcat:8.0.53
+    stdin_open: true

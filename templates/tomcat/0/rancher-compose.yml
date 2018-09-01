@@ -5,13 +5,14 @@
   minimum_rancher_version: v0.56.0
   maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
   questions:
-    - variable: "http-port"
+    - variable: "http_port"
       description: "Tomcat server HTTP port"
       label: "HTTP Port:"
       required: true
       default: 80
       type: "int"
-gitlab-server:
+
+tomcat-server:
   scale: 1
   retain_ip: true
   health_check:
