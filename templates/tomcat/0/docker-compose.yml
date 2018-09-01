@@ -1,7 +1,7 @@
 version: '2'
 services:
   tomcat-data:
-    image: busybox
+    image: tomcat:8.0.53
     labels:
       io.rancher.container.start_once: true
     volumes:
