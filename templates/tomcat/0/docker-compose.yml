@@ -1,5 +1,12 @@
 version: '2'
 services:
+  tomcat-data:
+    image: busybox
+    labels:
+      io.rancher.container.start_once: true
+    volumes:
+    - /usr/local/tomcat/conf/
+
   tomcat-server:
     ports:
       - ${http_port}:8080/tcp
@@ -8,3 +15,5 @@ services:
     tty: true
     image: tomcat:8.0.53
     stdin_open: true
+    volumes_from:
+      - tomcat-data

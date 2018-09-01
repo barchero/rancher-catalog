@@ -12,13 +12,19 @@
       default: 80
       type: "int"
 
-tomcat-server:
-  scale: 1
-  retain_ip: true
-  health_check:
-    port: 8080
-    interval: 30000
-    unhealthy_threshold: 3
-    strategy: recreate
-    response_timeout: 3000
-    healthy_threshold: 2
+version: '2'
+services:
+  tomcat-server:
+    scale: 1
+    start_on_create: true
+    retain_ip: true
+    health_check:
+      port: 8080
+      interval: 30000
+      unhealthy_threshold: 3
+      strategy: recreate
+      response_timeout: 3000
+      healthy_threshold: 2
+  tomcat-data:
+    scale: 1
+    start_on_create: true
