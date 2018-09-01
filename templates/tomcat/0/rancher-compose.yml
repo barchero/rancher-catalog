@@ -24,6 +24,3 @@ services:
       unhealthy_threshold: 3
       interval: 30000
       strategy: recreate
-  tomcat-data:
-    scale: 1
-    start_on_create: true
