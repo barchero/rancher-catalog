@@ -1,8 +1,13 @@
 version: '2'
+volumes:
+  tomcat-home:
+    driver: ${volumedriver}
 services:
   tomcat-server:
     ports:
       - ${http_port}:8080/tcp
+    volumes:
+      - tomcat-home:/usr/local/tomcat
     tty: true
     image: tomcat:8.0.53
     stdin_open: true
