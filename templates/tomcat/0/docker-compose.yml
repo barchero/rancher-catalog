@@ -12,6 +12,7 @@ services:
       - ${http_port}:8080/tcp
     labels:
       io.rancher.scheduler.global: 'true'
+      io.rancher.sidekicks: tomcat-data
     tty: true
     image: tomcat:8.0.53
     stdin_open: true
