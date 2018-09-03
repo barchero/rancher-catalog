@@ -1,0 +1,35 @@
+.catalog:
+  name: Tomcat server
+  version: "8.5.33"
+  description: Tomcat server v8.5.33
+  minimum_rancher_version: v0.56.0
+  maintainer: "Christian Bartrina <christianbartrina@gmail.com>"
+  questions:
+    - variable: "http_port"
+      description: "Tomcat server HTTP port"
+      label: "HTTP Port:"
+      required: true
+      default: 80
+      type: "int"
+    - variable: "volumedriver"
+      description: "Choose the Volume Driver being used.(Option: local or rancher-nfs)"
+      label: "Volume Driver:"
+      required: true
+      default: local
+      type: "enum"
+      options:
+      - local
+      - rancher-nfs
+
+version: '2'
+services:
+  tomcat-server:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 3000
+      port: 8080
+      unhealthy_threshold: 3
+      interval: 30000
+      strategy: recreate
