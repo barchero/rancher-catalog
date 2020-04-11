@@ -1,0 +1,19 @@
+version: '2'
+services:
+  terraria-data:
+    image: busybox
+    labels:
+      io.rancher.container.start_once: true
+    volumes:
+      - /world
+  terraria-server:
+    image: ryshe/terraria:latest
+    build:
+      args:
+        name: ${terraria_world_name}
+    tty: true
+    stdin_open: true
+    labels:
+      io.rancher.sidekicks: terraria-data
+    volumes_from:
+      - terraria-data

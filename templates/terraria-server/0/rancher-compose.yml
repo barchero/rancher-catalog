@@ -1,0 +1,12 @@
+.catalog:
+  name: Terraria
+  version: 1.3.5.3
+  description: |
+    Terraria server - TShock Server 4.3.26 for Terraria 1.3.5.3
+  questions:
+    - variable: "terraria_world_name"
+      type: "string"
+      label: "World Name"
+      description: "Specify your world name"
+      default: "my-world"
+      required: true
