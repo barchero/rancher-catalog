@@ -1,0 +1,31 @@
+.catalog:
+  name: Terraria Server
+  version: "1.0"
+  description: |
+    Terraria server
+  questions:
+    - variable: "terraria_image"
+      description: "The terraria server"
+      label: "Terraria server image"
+      type: "enum"
+      options:
+        - "beardedio/terraria:vanilla-latest"
+        - "beardedio/terraria:vanilla-1.3.5.3"
+        - "beardedio/terraria:vanilla-1.3.4.4"
+        - "beardedio/terraria:vanilla-1.3.3.3"
+        - "beardedio/terraria:vanilla-1.3.2.1"
+        - "beardedio/terraria:vanilla-1.3.1.1"
+      default: "beardedio/terraria:vanilla-latest"
+      required: true
+    - variable: "port"
+      description: "Expose port"
+      label: "Port:"
+      type: "int"
+      default: 7777
+      required: true
+    - variable: "config_folder"
+      description: "Config folder location must exist with 'serverconfig.txt' file. https://terraria.gamepedia.com/Server#Server_config_file"
+      label: "Config folder:"
+      type: "string"
+      default: "/volumes/terraria-server"
+      required: true
